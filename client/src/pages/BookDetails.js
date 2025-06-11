@@ -11,6 +11,18 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
+import API_BASE_URL from "../config";
+import axios from "axios";
+
+const fetchBooks = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/books`);
+    // do something with response.data
+  } catch (error) {
+    console.error("Error fetching books:", error);
+  }
+};
+
 
 function BookDetails() {
   const { id } = useParams();

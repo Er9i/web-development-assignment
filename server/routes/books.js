@@ -4,6 +4,19 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const jwt = require('jsonwebtoken');
 
+import API_BASE_URL from "../config";
+import axios from "axios";
+
+const fetchBooks = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/books`);
+    // do something with response.data
+  } catch (error) {
+    console.error("Error fetching books:", error);
+  }
+};
+
+
 const db = new sqlite3.Database(path.join(__dirname, '../db.sqlite'));
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
